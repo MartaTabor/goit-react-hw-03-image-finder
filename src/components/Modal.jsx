@@ -24,7 +24,6 @@ export const Modal = ({ imageUrl, onClose }) => {
     <div class="overlay" onClick={handleCloseModal}>
       <div class="modal">
         <img src={imageUrl} alt="" />
-        <button onClick={onClose}>X</button>
       </div>
     </div>
   );
