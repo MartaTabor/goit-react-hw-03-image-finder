@@ -50,7 +50,7 @@ export const App = () => {
     setShowModal(true);
   };
 
-  const handleClodeModal = () => {
+  const handleCloseModal = () => {
     setShowModal(false);
   };
 
@@ -64,7 +64,7 @@ export const App = () => {
       )}
       {images.length > 0 && <Button onClick={handleLoadMore}>Load More</Button>}
       {showModal && (
-        <Modal imageUrl={modalImageUrl} onClose={handleClodeModal} />
+        <Modal imageUrl={modalImageUrl} onClose={handleCloseModal} />
       )}
     </div>
   );
