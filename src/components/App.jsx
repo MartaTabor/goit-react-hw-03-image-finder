@@ -56,7 +56,7 @@ export const App = () => {
 
   return (
     <div className="app">
-      <Searchbar onSearch={handleSearch} />
+      <Searchbar handleSearch={handleSearch} />
       {loader ? (
         <Loader />
       ) : (

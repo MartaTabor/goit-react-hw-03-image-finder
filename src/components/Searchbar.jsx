@@ -25,6 +25,7 @@ export const Searchbar = ({ handleSearch }) => {
           autocomplete="off"
           autofocus
           placeholder="Search images and photos"
+          value={query}
           onChange={onChange}
         />
       </form>
