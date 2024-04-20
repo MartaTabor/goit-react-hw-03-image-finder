@@ -15,6 +15,7 @@ export const App = () => {
   const [images, setImages] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [modalImageUrl, setModalImageUrl] = useState('');
+  const [totalHits, setTotalHits] = useState(0);
 
   useEffect(() => {
     if (query === '') return;
@@ -26,6 +27,7 @@ export const App = () => {
           `https://pixabay.com/api/?q=${query}&page=${page}&key=${API_KEY}&image_type=photo&orientation=horizontal&per_page=12`
         );
         setImages(response.data.hits);
+        setTotalHits(response.data.totalHits);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -54,6 +56,8 @@ export const App = () => {
     setShowModal(false);
   };
 
+  const maxImagesReached = images.length >= totalHits;
+
   return (
     <div className="app">
       <Searchbar handleSearch={handleSearch} />
@@ -62,7 +66,9 @@ export const App = () => {
       ) : (
         <ImageGallery images={images} openModal={handleImageClick} />
       )}
-      {images.length > 0 && <Button onClick={handleLoadMore}>Load More</Button>}
+      {!maxImagesReached && images.length > 0 && (
+        <Button onClick={handleLoadMore}>Load More</Button>
+      )}
       {showModal && (
         <Modal imageUrl={modalImageUrl} onClose={handleCloseModal} />
       )}
