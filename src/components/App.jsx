@@ -40,6 +40,7 @@ export const App = () => {
   const handleSearch = searchQuery => {
     setQuery(searchQuery);
     setPage(1);
+    setImages([]);
   };
 
   const handleLoadMore = () => {
