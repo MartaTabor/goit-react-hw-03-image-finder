@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { useEffect } from 'react';
 
 export const Modal = ({ imageUrl, onClose }) => {
@@ -27,4 +29,9 @@ export const Modal = ({ imageUrl, onClose }) => {
       </div>
     </div>
   );
+};
+
+Modal.propTypes = {
+  imageUrl: PropTypes.string,
+  onClose: PropTypes.func,
 };

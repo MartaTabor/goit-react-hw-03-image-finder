@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 export const Searchbar = ({ handleSearch }) => {
@@ -31,4 +32,8 @@ export const Searchbar = ({ handleSearch }) => {
       </form>
     </header>
   );
+};
+
+Searchbar.propTypes = {
+  handleSearch: PropTypes.func,
 };
