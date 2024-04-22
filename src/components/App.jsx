@@ -26,7 +26,7 @@ export const App = () => {
         const response = await axios.get(
           `https://pixabay.com/api/?q=${query}&page=${page}&key=${API_KEY}&image_type=photo&orientation=horizontal&per_page=12`
         );
-        setImages(response.data.hits);
+        setImages(prevImages => [...prevImages, ...response.data.hits]);
         setTotalHits(response.data.totalHits);
       } catch (error) {
         console.error('Error fetching data:', error);
